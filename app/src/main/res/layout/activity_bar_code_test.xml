@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="50dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/decode_results"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/scan_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/result_listView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="18dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/single_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scan_total" />
+
+    <Button
+        android:id="@+id/save_result"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="saveResult"
+        android:text="@string/save_result"
+        app:layout_constraintBottom_toTopOf="@+id/clear_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/single_button" />
+
+    <CheckBox
+        android:id="@+id/scan_ring_checkBox"
+        style="@style/horizontal_button_style"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/scan_ring"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/clear_button"
+        app:layout_constraintStart_toStartOf="@+id/single_button"
+        app:layout_constraintTop_toBottomOf="@+id/single_button" />
+
+
+    <Button
+        android:id="@+id/clear_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="2dp"
+        android:onClick="clearOnClick"
+        android:text="@string/clear_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/exit_button"
+        app:layout_constraintStart_toEndOf="@+id/continuous_button" />
+
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="2dp"
+        android:onClick="exitOnClick"
+        android:text="@string/exit_button"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/clear_button" />
+
+    <CheckBox
+        android:id="@+id/white_light_checkBox"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:text="@string/white_light"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/red_light_checkBox"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/red_light_checkBox" />
+
+    <CheckBox
+        android:id="@+id/red_light_checkBox"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:text="@string/read_light"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/location_light_checkBox"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/location_light_checkBox" />
+
+    <CheckBox
+        android:id="@+id/location_light_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location_light"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/continuous_button"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/continuous_button" />
+
+    <Button
+        android:id="@+id/auto_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/auto_test"
+        app:layout_constraintBottom_toTopOf="@+id/exit_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/single_button"
+        android:layout_width="109dp"
+        android:layout_height="112dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_scan"
+        android:onClick="singleShootOnClick"
+        android:text="Scan"
+        app:layout_constraintBottom_toTopOf="@+id/auto_test"
+        app:layout_constraintEnd_toStartOf="@+id/auto_test" />
+
+    <ToggleButton
+        android:id="@+id/continuous_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="13dp"
+        android:checked="false"
+        android:onClick="continuousShootOnClick"
+        android:textOff="@string/continuous_shoot"
+        android:textOn="@string/continuous_shoot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clear_button"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/scan_total"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/scan_total"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+</android.support.constraint.ConstraintLayout>
